@@ -13,6 +13,7 @@ export const typeDefs = gql`
   type Tag {
     id: Int!
     name: String!
+    notes: [ Note ]
   }
 
   type Query {
