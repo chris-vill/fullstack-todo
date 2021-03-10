@@ -17,9 +17,38 @@ export const typeDefs = gql`
   }
 
   type Query {
+
     note(id: Int): Note
+
     notes: [ Note ]
+
     tag(id: Int): Tag
+
     tags: [ Tag ]
+  }
+
+  type Mutation {
+    addNote(
+      title: String
+      body: String
+    ): Note
+
+    updateNote(
+      id: Int!
+      title: String
+      body: String
+    ): Note
+
+    deleteNote(
+      id: Int!
+    ): Note
+
+    addTag(
+      name: String!
+    ): Tag
+
+    deleteTag(
+      id: Int!
+    ): Tag
   }
 `;
