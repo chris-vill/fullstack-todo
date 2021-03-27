@@ -1,4 +1,7 @@
-export function typeOf(data) {
+export function typeOf(
+  data: any
+
+) {
   let type = ({})
     .toString
     .call(data)
@@ -18,11 +21,23 @@ export function typeOf(data) {
   }
 }
 
-export function isTypeOf(type, data) {
-  return _data => typeOf(_data) === type;
+export function isTypeOf(
+  type: string,
+  data?: any
+
+) {
+  if (data) {
+    return typeOf(data) === type;
+  }
+
+  return (_data: any) => typeOf(_data) === type;
 }
 
-export function objectMap(obj, fn) {
+export function objectMap(
+  obj: object,
+  fn: Function
+
+) {
   return Object
     .entries(obj)
     .map((entry, i) => {
@@ -33,6 +48,6 @@ export function objectMap(obj, fn) {
     });
 }
 
-export function firstLetterUpperCase(text) {
+export function firstLetterUpperCase(text: string) {
   return text.replace(/^\w/, letter => letter.toUpperCase());
 }

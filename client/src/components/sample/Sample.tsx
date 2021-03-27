@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './Sample.sass';
+import classes from './Sample.module.sass';
 
-const Sample = ({ name, extClass = "" }) => {
+const Sample = ({ extClass = "" }) => {
 
   return (
     <div className={ `${ classes["sample"] } ${ extClass }` }>

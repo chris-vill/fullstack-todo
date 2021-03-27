@@ -5,16 +5,29 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode : process.env.NODE_ENV || 'development',
   devtool: 'source-map',
-  entry: resolve('./src/index.js'),
+  entry: resolve('./src/index.tsx'),
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'ts-loader'
       },
       {
-        test: /\.(css|sass)$/,
+        test: /styles\/.+\.(css|sass)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /components\/.+\.(css|sass)$/,
         use: [
           'style-loader',
           {
@@ -32,27 +45,12 @@ module.exports = {
               sourceMap: true
             }
           }
-        ],
-        include: /\/components\/.*\.(css|sass)$/
-      },
-      {
-        test: /\.(css|sass)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ],
-        exclude: /\/components\/.*\.(css|sass)$/
+        ]
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.sass']
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.sass']
   },
   output: {
     path: resolve('./dist'),
