@@ -14,7 +14,10 @@ const server = new ApolloServer({
 
 server.applyMiddleware({
   app,
-  cors: false
+  cors: {
+    origin: 'http://localhost:8080',
+    credentials: true
+  }
 });
 
 app.listen(PORT, () => {

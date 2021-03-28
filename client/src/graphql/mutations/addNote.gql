@@ -1,0 +1,5 @@
+mutation AddNote {
+  addNote(title: "from gql", body: "KLSAJDLKJKLASJDKJS") {
+    title
+  }
+}

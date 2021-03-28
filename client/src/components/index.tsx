@@ -1,5 +1,7 @@
-import Sample from './sample/Sample';
+import NotesList from './notes-list/NotesList';
+import Note from './note/Note';
 
 export {
-  Sample
+  Note,
+  NotesList
 };
