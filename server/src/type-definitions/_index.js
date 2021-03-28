@@ -5,7 +5,7 @@ const { gql } = ApolloServerExpress;
 export const typeDefs = gql`
   type Note {
     id: Int!
-    title: String
+    title: String!
     body: String
     tags: [ Tag ]
   }

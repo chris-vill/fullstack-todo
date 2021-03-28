@@ -1,13 +1,16 @@
 import classes from './Note.module.sass';
 
 import React from 'react';
+import { NoteComponentType } from '../../types';
 import { ListItem } from '@chakra-ui/react';
 
-const Note = ({ extClass = "" }) => {
+const Note = ({
+  note, extClass
 
+}: NoteComponentType) => {
   return (
     <ListItem className={ `${ classes.note } ${ extClass }` }>
-      This is a list item.
+      { note.title }
     </ListItem>
   );
 }

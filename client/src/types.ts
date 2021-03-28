@@ -1,12 +1,5 @@
-export interface NoteType {
-  id: number
-  title: string;
-  body: string;
-  tags: TagType[]
-}
-
-export interface TagType {
-  id: number
-  name: string
-  notes: NoteType[]
+import { Note } from './generated/graphql';
+export interface NoteComponentType {
+  note: Note;
+  extClass?: string;
 }

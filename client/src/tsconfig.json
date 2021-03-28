@@ -5,7 +5,9 @@
     "module": "es6",
     "moduleResolution": "node",
     "jsx": "react",
+    "strict": true,
     "noImplicitAny": true,
+    "strictNullChecks": false,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true
   }
