@@ -56,6 +56,7 @@ module.exports = {
   output: {
     path: resolve('./dist'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -64,6 +65,7 @@ module.exports = {
     })
   ],
   devServer: {
+    historyApiFallback: true,
     contentBase: resolve('./dist'),
   },
 };

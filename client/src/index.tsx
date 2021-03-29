@@ -3,13 +3,11 @@ import './styles/main.sass';
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, gql } from '@apollo/client';
 import { Center, ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { NotesList } from './components';
+import { NotesList, NoteDetails } from './components';
+import { NotesProvider } from './context/NotesContext';
 
 /*
   TODO
@@ -44,25 +42,22 @@ import { NotesList } from './components';
       - in Tags View, click 'Delete Tag' btn
 */
 
-library.add(fab);
-library.add(far);
-library.add(fas);
-
-
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    addTypename: false
+  })
 });
 
 ReactDom.render(
   <ApolloProvider client={ client }>
   <ChakraProvider>
+  <NotesProvider>
+  <Router>
     <Center h="100%" w="100%">
       <Grid
-        minW="600px"
-        maxW="1000px"
-        minH="500px"
-        maxH="800px"
+        w="650px"
+        h="600px"
         border="1px solid rgba(0,0,0,0.2)"
         borderRadius="6px"
         templateRows="repeat(2, 1fr)"
@@ -75,6 +70,7 @@ ReactDom.render(
           borderLeftRadius="6px"
           rowSpan={2}
           colSpan={1}
+          maxW=""
         />
         <GridItem
           bg="papayawhip"
@@ -84,10 +80,16 @@ ReactDom.render(
           rowSpan={2}
           colSpan={3}
         >
-          <NotesList/>
+          <Switch>
+            <Route path="/" exact component={ NotesList }/>
+            <Route path="/notes" exact component={ NotesList }/>
+            <Route path="/note/:id" exact component={ NoteDetails }/>
+          </Switch>
         </GridItem>
       </Grid>
     </Center>
+  </Router>
+  </NotesProvider>
   </ChakraProvider>
   </ApolloProvider>,
   document.getElementById('root')

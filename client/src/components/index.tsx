@@ -1,7 +1,9 @@
-import NotesList from './notes-list/NotesList';
-import Note from './note/Note';
+import NotesList from './NotesList';
+import NoteDetails from './NoteDetails';
+import NoteListItem from './NoteListItem';
 
 export {
-  Note,
+  NoteDetails,
+  NoteListItem,
   NotesList
 };

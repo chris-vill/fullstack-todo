@@ -3,7 +3,7 @@ import ApolloServerExpress from 'apollo-server-express';
 
 import { PORT } from './assets/constants.js';
 import { resolvers } from './resolvers/_index.js';
-import { typeDefs } from './type-definitions/_index.js'
+import { typeDefs } from './type-definitions/_index.js';
 
 const { ApolloServer, gql } = ApolloServerExpress;
 const app = Express();

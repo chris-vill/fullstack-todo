@@ -3,5 +3,8 @@ query Note($id: Int) {
     id
     title
     body
+    tags {
+      name
+    }
   }
 }
