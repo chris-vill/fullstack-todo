@@ -31,6 +31,7 @@ export const typeDefs = gql`
     addNote(
       title: String
       body: String
+      tags: [ Int ]
     ): Note
 
     updateNote(

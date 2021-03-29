@@ -1,5 +1,11 @@
-mutation AddNote {
-  addNote(title: "from gql", body: "KLSAJDLKJKLASJDKJS") {
+mutation AddNote($title: String, $body: String, $tags: [Int]) {
+  addNote(title: $title, body: $body, tags: $tags) {
+    id
     title
+    body
+    tags {
+      id
+      name
+    }
   }
 }

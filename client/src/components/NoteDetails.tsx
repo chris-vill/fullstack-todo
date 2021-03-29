@@ -5,9 +5,9 @@ import { NotesContext } from '../context/NotesContext';
 import { Note as NoteType } from '../generated/graphql';
 
 const NoteDetails = (props: any) => {
-  const notes: NoteType[] = useContext(NotesContext);
+  const [ notes ] = useContext(NotesContext);
   const id: number = Number(props.match.params.id);
-  const note = notes && notes.find(note => note.id === id);
+  const note = notes && (notes as NoteType[]).find(note => note.id === id);
 
   if (!note) {
     return (

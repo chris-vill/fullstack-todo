@@ -9,7 +9,9 @@ const addNote = (_, args) => {
     args
   );
 
-  dummyNotes.push(data);
+  console.log(data);
+
+  // dummyNotes.push(data);
 
   return data;
 };

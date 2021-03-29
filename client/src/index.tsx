@@ -5,9 +5,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, gql } from '@apollo/client';
-import { Center, ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
-import { NotesList, NoteDetails } from './components';
+import { Center, ChakraProvider, Grid, GridItem, Button } from '@chakra-ui/react';
+import { Aside, NoteForm, NotesList, NoteDetails } from './components';
 import { NotesProvider } from './context/NotesContext';
+import { TagsProvider } from './context/TagsContext';
 
 /*
   TODO
@@ -53,6 +54,7 @@ ReactDom.render(
   <ApolloProvider client={ client }>
   <ChakraProvider>
   <NotesProvider>
+  <TagsProvider>
   <Router>
     <Center h="100%" w="100%">
       <Grid
@@ -71,7 +73,9 @@ ReactDom.render(
           rowSpan={2}
           colSpan={1}
           maxW=""
-        />
+        >
+          <Aside/>
+        </GridItem>
         <GridItem
           bg="papayawhip"
           py="12px"
@@ -84,11 +88,13 @@ ReactDom.render(
             <Route path="/" exact component={ NotesList }/>
             <Route path="/notes" exact component={ NotesList }/>
             <Route path="/note/:id" exact component={ NoteDetails }/>
+            <Route path="/create-note" exact component={ NoteForm }/>
           </Switch>
         </GridItem>
       </Grid>
     </Center>
   </Router>
+  </TagsProvider>
   </NotesProvider>
   </ChakraProvider>
   </ApolloProvider>,
