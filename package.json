@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/chris-vill/fullstack-todo/issues"
   },
-  "homepage": "https://github.com/chris-vill/fullstack-todo#readme"
+  "homepage": "https://github.com/chris-vill/fullstack-todo#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
