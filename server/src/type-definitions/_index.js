@@ -4,14 +4,14 @@ const { gql } = ApolloServerExpress;
 
 export const typeDefs = gql`
   type Note {
-    id: Int!
+    id: Int
     title: String!
     body: String
     tags: [ Tag ]
   }
 
   type Tag {
-    id: Int!
+    id: Int
     name: String!
     notes: [ Note ]
   }
@@ -29,9 +29,9 @@ export const typeDefs = gql`
 
   type Mutation {
     addNote(
-      title: String
+      title: String!
       body: String
-      tags: [ Int ]
+      _tagIds: [ Int ]
     ): Note
 
     updateNote(

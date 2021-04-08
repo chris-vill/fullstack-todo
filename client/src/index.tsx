@@ -53,9 +53,9 @@ const client = new ApolloClient({
 ReactDom.render(
   <ApolloProvider client={ client }>
   <ChakraProvider>
+  <Router>
   <NotesProvider>
   <TagsProvider>
-  <Router>
     <Center h="100%" w="100%">
       <Grid
         w="650px"
@@ -89,13 +89,14 @@ ReactDom.render(
             <Route path="/notes" exact component={ NotesList }/>
             <Route path="/note/:id" exact component={ NoteDetails }/>
             <Route path="/create-note" exact component={ NoteForm }/>
+            <Route path="/edit-note/:id" exact component={ NoteForm }/>
           </Switch>
         </GridItem>
       </Grid>
     </Center>
-  </Router>
   </TagsProvider>
   </NotesProvider>
+  </Router>
   </ChakraProvider>
   </ApolloProvider>,
   document.getElementById('root')

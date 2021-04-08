@@ -6,13 +6,13 @@ export const Relationships = {
 
     // NOTE this is bad because of N+1 problem
     tags: ({ _tagIds }) =>
-      dummyTags.filter(({ id }) => _tagIds.includes(id))
+      dummyTags.filter(({ id }) => _tagIds && _tagIds.includes(id))
   },
 
   Tag: {
 
     // NOTE this is bad because of N+1 problem
     notes: ({ id }) =>
-      dummyNotes.filter(({ _tagIds }) => _tagIds.includes(id))
+      dummyNotes.filter(({ _tagIds }) => _tagIds && _tagIds.includes(id))
   }
 }

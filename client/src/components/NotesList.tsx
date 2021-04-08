@@ -6,6 +6,8 @@ import { Note as NoteType } from '../generated/graphql';
 
 const NotesList = () => {
   const [ notes ] = useContext(NotesContext);
+  console.log('LIST');
+  console.log(notes);
 
   const Notes = !notes 
     ? <div>Loading...</div>

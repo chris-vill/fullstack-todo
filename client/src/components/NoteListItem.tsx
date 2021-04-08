@@ -9,18 +9,8 @@ const Note = ({
 
 }: NoteComponentType) => {
 
-  function viewNote() {
-    console.log("VIEW");
-    console.log(note);
-  }
-
   function deleteNote() {
     console.log("DELETE");
-    console.log(note);
-  }
-
-  function editNote(x: any) {
-    console.log("EDIT");
     console.log(note);
   }
 
@@ -36,16 +26,17 @@ const Note = ({
         minW="24px"
         mr="12px"
       />
-      <IconButton
-        onClick={ editNote }
-        aria-label="Edit Note"
-        icon={ <FaPen/> }
-        colorScheme="blue"
-        h="24px"
-        maxW="24px"
-        minW="24px"
-        mr="12px"
-      />
+      <Link to={ `/edit-note/${ note.id }` }>
+        <IconButton
+          aria-label="Edit Note"
+          icon={ <FaPen/> }
+          colorScheme="blue"
+          h="24px"
+          maxW="24px"
+          minW="24px"
+          mr="12px"
+        />
+      </Link>
       <Link to={ `/note/${ note.id } `}>
         <Text cursor="pointer">{ note.title }</Text>
       </Link>
