@@ -4,11 +4,35 @@ import './styles/main.sass';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache, gql } from '@apollo/client';
-import { Center, ChakraProvider, Grid, GridItem, Button } from '@chakra-ui/react';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+// import { Center, ChakraProvider, Grid, GridItem, Button } from '@chakra-ui/react';
 import { Aside, NoteForm, NotesList, NoteDetails } from './components';
 import { NotesProvider } from './context/NotesContext';
-import { TagsProvider } from './context/TagsContext';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql',
+  cache: new InMemoryCache({
+    addTypename: false
+  })
+});
+
+ReactDom.render(
+  <ApolloProvider client={ client }>
+  <NotesProvider>
+  <Router>
+    <Route path="/" exact component={ NotesList }/>
+    {/* <Switch>
+      <Route path="/" exact component={ NotesList }/>
+      <Route path="/notes" exact component={ NotesList }/>
+      <Route path="/note/:id" exact component={ NoteDetails }/>
+      <Route path="/create-note" exact component={ NoteForm }/>
+      <Route path="/edit-note/:id" exact component={ NoteForm }/>
+    </Switch> */}
+  </Router>
+  </NotesProvider>
+  </ApolloProvider>,
+  document.getElementById('root')
+);
 
 /*
   TODO
@@ -42,62 +66,3 @@ import { TagsProvider } from './context/TagsContext';
     - Delete a tag
       - in Tags View, click 'Delete Tag' btn
 */
-
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache({
-    addTypename: false
-  })
-});
-
-ReactDom.render(
-  <ApolloProvider client={ client }>
-  <ChakraProvider>
-  <Router>
-  <NotesProvider>
-  <TagsProvider>
-    <Center h="100%" w="100%">
-      <Grid
-        w="650px"
-        h="600px"
-        border="1px solid rgba(0,0,0,0.2)"
-        borderRadius="6px"
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(4, 1fr)"
-      >
-        <GridItem
-          bg="tomato"
-          py="12px"
-          px="18px"
-          borderLeftRadius="6px"
-          rowSpan={2}
-          colSpan={1}
-          maxW=""
-        >
-          <Aside/>
-        </GridItem>
-        <GridItem
-          bg="papayawhip"
-          py="12px"
-          px="18px"
-          borderRightRadius="6px"
-          rowSpan={2}
-          colSpan={3}
-        >
-          <Switch>
-            <Route path="/" exact component={ NotesList }/>
-            <Route path="/notes" exact component={ NotesList }/>
-            <Route path="/note/:id" exact component={ NoteDetails }/>
-            <Route path="/create-note" exact component={ NoteForm }/>
-            <Route path="/edit-note/:id" exact component={ NoteForm }/>
-          </Switch>
-        </GridItem>
-      </Grid>
-    </Center>
-  </TagsProvider>
-  </NotesProvider>
-  </Router>
-  </ChakraProvider>
-  </ApolloProvider>,
-  document.getElementById('root')
-);

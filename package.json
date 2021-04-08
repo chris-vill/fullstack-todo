@@ -2,7 +2,10 @@
   "name": "fullstack-todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "server/src/index.js",
   "scripts": {
     "test": "cd ./client"
   },
@@ -10,8 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/chris-vill/fullstack-todo.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Christopher Villaran <villaran.christopher@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "bugs": {
     "url": "https://github.com/chris-vill/fullstack-todo/issues"
   },
