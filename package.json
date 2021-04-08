@@ -7,7 +7,7 @@
   },
   "main": "server/src/index.js",
   "scripts": {
-    "test": "cd ./client"
+    "start": "cd server && yarn start"
   },
   "repository": {
     "type": "git",
