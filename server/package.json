@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node dist/index.js",
-    "build:prod": "babel ./src -d dist",
+    "build:prod": "npx babel ./src -d dist",
     "build:dev": "npm run clear-cache && nodemon --exec babel-node src/index.js",
     "clear-cache": "rm -rf ./node_modules/.cache/babel-loader"
   },
