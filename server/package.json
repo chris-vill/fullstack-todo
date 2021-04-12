@@ -1,7 +1,7 @@
 {
   "name": "fullstack-todo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server side code of ToDo app",
   "scripts": {
     "start": "node dist/index.js",
     "build:prod": "babel ./src -d dist",
