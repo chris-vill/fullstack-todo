@@ -8,7 +8,7 @@
   "main": "server/dist/index.js",
   "scripts": {
     "start": "node server/dist/index.js",
-    "build": "echo \"ASDSADASD\"",
+    "build": "echo \"ASDSADASD!!!\"",
     "build:server": "cd server && yarn && npm run build:prod",
     "build:client": "cd client && yarn && npm run build:prod"
   },
