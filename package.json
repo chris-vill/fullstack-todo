@@ -28,6 +28,7 @@
     "express",
     "graphql",
     "react",
-    "sass"
+    "sass",
+    "apollo"
   ]
 }
