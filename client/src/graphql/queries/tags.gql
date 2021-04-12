@@ -1,9 +1,0 @@
-query Tags {
-  tags {
-    id
-    name
-    notes {
-      title
-    }
-  }
-}

@@ -3,34 +3,9 @@ import './styles/main.sass';
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-// import { Center, ChakraProvider, Grid, GridItem, Button } from '@chakra-ui/react';
-import { Aside, NoteForm, NotesList, NoteDetails } from './components';
-import { NotesProvider } from './context/NotesContext';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache({
-    addTypename: false
-  })
-});
 
 ReactDom.render(
-  <ApolloProvider client={ client }>
-  <NotesProvider>
-  <Router>
-    <Route path="/" exact component={ NotesList }/>
-    {/* <Switch>
-      <Route path="/" exact component={ NotesList }/>
-      <Route path="/notes" exact component={ NotesList }/>
-      <Route path="/note/:id" exact component={ NoteDetails }/>
-      <Route path="/create-note" exact component={ NoteForm }/>
-      <Route path="/edit-note/:id" exact component={ NoteForm }/>
-    </Switch> */}
-  </Router>
-  </NotesProvider>
-  </ApolloProvider>,
+  <div>Hello</div>,
   document.getElementById('root')
 );
 

@@ -5,23 +5,29 @@
   "engines": {
     "node": "14.x"
   },
-  "main": "server/src/index.js",
+  "main": "server/dist/index.js",
   "scripts": {
-    "start": "cd server && npm run start"
+    "start": "node server/dist/index.js",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && yarn && npm run build:prod",
+    "build:client": "cd client && yarn && npm run build:prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chris-vill/fullstack-todo.git"
   },
+  "bugs": {
+    "url": "https://github.com/chris-vill/fullstack-todo/issues"
+  },
+  "homepage": "https://github.com/chris-vill/fullstack-todo#readme",
   "author": "Christopher Villaran <villaran.christopher@gmail.com>",
   "license": "MIT",
   "keywords": [
     "node",
     "heroku",
-    "express"
-  ],
-  "bugs": {
-    "url": "https://github.com/chris-vill/fullstack-todo/issues"
-  },
-  "homepage": "https://github.com/chris-vill/fullstack-todo#readme"
+    "express",
+    "graphql",
+    "react",
+    "sass"
+  ]
 }

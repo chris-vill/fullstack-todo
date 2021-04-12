@@ -2,22 +2,12 @@
   "name": "client",
   "version": "1.0.0",
   "description": "Client side of Fullstack ToDo",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https:///chris-vill/fullstack-todo.git"
-  },
-  "bugs": {
-    "url": "https:///chris-vill/fullstack-todo/issues"
-  },
-  "homepage": "https:///chris-vill/fullstack-todo/issues",
   "scripts": {
     "start": "webpack serve --config ./webpack.config.js --mode development",
-    "build": "webpack",
+    "build:prod": "webpack",
     "generate": "graphql-codegen --config codegen.yml"
   },
-  "author": "Christopher Villaran &lt;villaran.christopher@gmail.com&gt;",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.3.13",
     "@chakra-ui/react": "^1.4.1",
